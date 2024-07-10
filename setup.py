@@ -11,7 +11,11 @@ This script is interactive and will prompt you for various inputs.
 """
 
 class MySettings(BaseModel):
-    mnemonic_prompt: str = """Write a concise summary of the following:"""
+    mnemonic_prompt: str  = Field(
+                title="mnemonic prompt",
+                default="""Genera una tabella di parole chiave della nostra discusisone suddivisa in contesti, scrivi in plaintext senza emoji e commenti aggiuntivi""",
+                extra={"type": "TextArea"}
+                    )
     ollama_model: str = """mistral"""
 
 
