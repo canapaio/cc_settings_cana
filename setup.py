@@ -2,13 +2,23 @@ import os
 import pathlib
 import fnmatch
 import sys
-
+from pydantic import BaseModel
+from cat.mad_hatter.decorators import plugin
 """
 Run this script once after first creating the repository from the template.
 
 This script is interactive and will prompt you for various inputs.
 """
 
+class MySettings(BaseModel):
+    mnemonic_prompt: str = """Write a concise summary of the following:"""
+    ollama_model: str = """mistral"""
+
+
+@plugin
+def settings_schema():
+    return MySettings.schema()
+    
 
 def filter_lines(file_path, excluded_ranges):
     with open(file_path, 'r') as file:
