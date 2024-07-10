@@ -1,0 +1,4 @@
+{
+    "mnemonic_prompt": "Write a concise summary of the following:",
+    "ollama_model": "mistral"
+}
