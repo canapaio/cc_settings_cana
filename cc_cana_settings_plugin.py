@@ -1,4 +1,4 @@
-from cat.mad_hatter.decorators import tool, hook, plugin
+from cat.mad_hatter.decorators import hook, plugin
 from pydantic import BaseModel
 from datetime import datetime, date
 
@@ -14,13 +14,6 @@ class MySettings(BaseModel):
 def settings_model():
     return MySettings
 
-@tool
-def get_the_day(tool_input, cat):
-    """Get the day of the week. Input is always None."""
-
-    dt = datetime.now()
-
-    return dt.strftime('%A')
 
 @hook
 def before_cat_sends_message(message, cat):
